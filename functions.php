@@ -254,7 +254,14 @@ function register_cpt_recipe() {
 
 }
 
+    //registered taxonomies for the Recipe custom post type
+    register_taxonomy('ingredients',array (
+  0 => 'recipe',
+),array( 'hierarchical' => false, 'label' => 'Ingredients','show_ui' => true,'query_var' => true,'rewrite' => array('slug' => ''),'singular_label' => 'Ingredient') );
 
+	register_taxonomy('style',array (
+	  0 => 'recipe',
+	),array( 'hierarchical' => true, 'label' => 'Styles','show_ui' => true,'query_var' => true,'rewrite' => array('slug' => ''),'singular_label' => 'Style') );
 
 if ( function_exists('x_add_metadata_group' ) ) :
 
