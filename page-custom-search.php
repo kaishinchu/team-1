@@ -26,7 +26,6 @@ get_header(); ?>
 							'post_type' => 'recipe',
 							'posts_per_page' => -1,
 						);
-						$wp_query = new WP_Query( $searchArgs );
 
 						if ( !empty( $_POST['food_style'] ) || !empty( $_POST['ingredients'] ) ) {
 							$searchArgs['tax_query'] = array( 'relation' => 'AND' );
@@ -49,6 +48,8 @@ get_header(); ?>
 								$searchArgs['tax_query'][1]['terms'][] = (int) $ingredient_id;
 							}
 						}
+
+						$wp_query = new WP_Query( $searchArgs );
 
 						if($wp_query->have_posts()){
 							while ($wp_query->have_posts()) : $wp_query->the_post();
