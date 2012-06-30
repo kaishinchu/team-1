@@ -25,7 +25,7 @@ add_action('after_setup_theme', 'reverie_setup');
 $sidebars = array('Sidebar', 'Blog');
 foreach ($sidebars as $sidebar) {
 	register_sidebar(array('name'=> $sidebar,
-		'before_widget' => '<article id="%1$s" class="widget %2$s"><div class="sidebar-section">',
+		'before_widget' => '<article id="%1$s" class="widget %2$s"><div class="sidebar-section panel">',
 		'after_widget' => '</div></article>',
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
@@ -246,4 +246,13 @@ add_action( 'init', 'register_cpt_recipe' );
     );
     register_post_type( 'recipe', $args );
     } 
+    
+    //registered taxonomies for the Recipe custom post type
+    register_taxonomy('ingredients',array (
+  0 => 'recipe',
+),array( 'hierarchical' => false, 'label' => 'Ingredients','show_ui' => true,'query_var' => true,'rewrite' => array('slug' => ''),'singular_label' => 'Ingredient') );
+
+	register_taxonomy('style',array (
+	  0 => 'recipe',
+	),array( 'hierarchical' => true, 'label' => 'Styles','show_ui' => true,'query_var' => true,'rewrite' => array('slug' => ''),'singular_label' => 'Style') );
 ?>
