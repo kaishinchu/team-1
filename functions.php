@@ -210,6 +210,10 @@ function excerpt($limit) {
 	return $excerpt;
 }
 
+function custom_excerpt_more( $more ) {
+	return ' <a href="'. get_permalink() .'">Read More &raquo;</a>';
+}
+add_filter( 'excerpt_more', 'custom_excerpt_more' );
 
 /* 
  Custom Post Types & Taxonomies

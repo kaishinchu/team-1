@@ -56,11 +56,13 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider-min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.dropmenu.js"></script>
 
+<!--
 	<script type="text/javascript">
-		$(window).load(function() {
+		jQuery(window).load(function() {
 		    jQuery("#main-nav").dropmenu({}); 
 		});
 	</script>
+-->
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 	<?php wp_head(); ?>
 </head>

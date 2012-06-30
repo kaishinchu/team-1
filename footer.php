@@ -2,9 +2,6 @@
 		
 		<footer id="content-info" role="contentinfo">
 			<div class="row">
-				<?php wp_nav_menu(array('theme_location' => 'utility_navigation', 'container' => false, 'menu_class' => 'menu footer-nav')); ?>
-			</div>
-			<div class="row">
 				<small>&copy; Copyright <?php echo date('Y'); ?> Investor Community. All Rights Reserved. Design &amp; development by <a href="http://www.shawnjohnston.ca" target="_blank">Shawn Johnston</a>.</small>
 			</div>
 		</footer>

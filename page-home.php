@@ -13,44 +13,46 @@ get_header(); ?>
 					jQuery(window).load(function() {
 						jQuery('.flexslider').flexslider({
 						  animation: "slide"
-						  //,controlsContainer: ".flexslider-container"
 					  });
 					});
 				</script>
 				<div class="flexslider">
-						<?php 
-				 		    $arrParams = array(
-								'post_type' => 'recipe',
-								'posts_per_page' => 5, 
-								'orderby' => 'ASC', 
-								'meta_key' => 'featured_post',
-								'meta_value' => 'on'
-							);
-						    $wp_query = new WP_Query($arrParams);		
-							if($wp_query->have_posts()){
+					<?php 
+			 		    $arrParams = array(
+							'post_type' => 'recipe',
+							'posts_per_page' => 5, 
+							'orderby' => 'ASC', 
+							'meta_key' => 'featured_post',
+							'meta_value' => 'on'
+						);
+					    $wp_query = new WP_Query($arrParams);		
+						if($wp_query->have_posts()){
+						?>
+						    <ul class="slides">
+							<?php
+								while ($wp_query->have_posts()) : $wp_query->the_post(); 
 							?>
-							    <ul class="slides">
-								<?php
-									while ($wp_query->have_posts()) : $wp_query->the_post(); 
-								?>
-									<li>
-										<?php the_post_thumbnail('slideshow'); ?>
-										<div class="slide-text">
-											<h2><?php the_title(); ?></h2>
-										</div>							
-									</li>
-								 <?php 
-									 endwhile; 
-									 wp_reset_query();
-								?>
-							    </ul>
-
+								<li>
+									<?php the_post_thumbnail('slideshow'); ?>
+									<div class="slide-text">
+										<h2><?php the_title(); ?></h2>
+									</div>							
+								</li>
+							 <?php 
+								 endwhile; 
+								 wp_reset_query();
+							?>
+						    </ul>
+		
 						<?php							
 						 } //end if 
 						 ?>
 				</div>
 			</div>		
 		</section>
+		<div class="row">
+			<?php ?>
+		</div>
 		<div class="row">
 			<div class="eight columns">
 				<?php 
@@ -66,10 +68,10 @@ get_header(); ?>
 				?>
 					<div class="row">
 						<div class="three columns">
-							<?php the_post_thumbnail('thumbnail'); ?>
+							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
 						</div>
 						<div class="nine columns">
-							<h3><?php the_title(); ?></h3>
+							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 							<?php the_excerpt(); ?>
 						</div>
 					</div>
