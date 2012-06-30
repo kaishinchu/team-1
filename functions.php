@@ -22,16 +22,7 @@ function reverie_setup() {
 add_action('after_setup_theme', 'reverie_setup');
 
 // create widget areas: sidebar, footer
-$sidebars = array('Sidebar');
-foreach ($sidebars as $sidebar) {
-	register_sidebar(array('name'=> $sidebar,
-		'before_widget' => '<article id="%1$s" class="widget %2$s"><div class="sidebar-section">',
-		'after_widget' => '</div></article>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-}
-$sidebars = array('Blog');
+$sidebars = array('Sidebar', 'Blog');
 foreach ($sidebars as $sidebar) {
 	register_sidebar(array('name'=> $sidebar,
 		'before_widget' => '<article id="%1$s" class="widget %2$s"><div class="sidebar-section">',
