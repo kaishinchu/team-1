@@ -108,4 +108,19 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
     Your Customized Style
     ----------------------- */
     
-  
+      .flex-control-nav {
+    	list-style: none;
+    	left: 6%;
+    	bottom: -10px;
+    }
+    .flex-control-nav li a {
+    	background: #333;
+    	display: block; 
+    	width: 10px;
+    	height: 10px;
+    	border-radius: 5px;
+    }
+    .flex-control-nav li a.active {
+	    background: #E7E7E7;
+		border-radius: 5px;
+    }

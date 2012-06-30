@@ -7,7 +7,7 @@ function reverie_setup() {
 	add_theme_support('post-thumbnails');
 	// set_post_thumbnail_size(150, 150, false);
 	//image size for front page slider, change to fit design
-	add_image_size('slideshow', 920, 320, true);
+	add_image_size('slideshow', 980, 400, false);
 
 	// Add post formarts supports. http://codex.wordpress.org/Post_Formats
 	//add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
@@ -236,7 +236,7 @@ function register_cpt_recipe() {
 	$args = array(
 		'labels' => $labels,
 		'hierarchical' => false,
-		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes' ),
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'trackbacks',  'comments', 'revisions', 'page-attributes' ),
 		'taxonomies' => array( 'ingredients', 'style' ),
 		'public' => true,
 		'show_ui' => true,
@@ -268,9 +268,12 @@ if ( function_exists('x_add_metadata_group' ) ) :
 add_action( 'admin_init', 'teamchicken_custom_fields' );
 function teamchicken_custom_fields() {
 
-    // page fields
-  	x_add_metadata_group( 'featured_post', 'recipe', array( 'label' => __( 'Featured Post', 'reverie' ), 'context' => 'side' ) );
+    // recipe fields
+  	x_add_metadata_group( 'featured_post', 'recipe', array( 'label' => __( 'Featured Post', 'reverie' ), 'context' => 'side', 'priority' => 'high' ) );
   	x_add_metadata_field( 'featured_post', 'recipe', array( 'group' => 'featured_post', 'label' => __( 'Featured Post', 'reverie' ), 'field_type' => 'checkbox' ) );
+
+  	x_add_metadata_group( 'ingredients', 'recipe', array( 'label' => __( 'Ingredients', 'reverie' ), 'priority' => 'high' ) );
+  	x_add_metadata_field( 'ingredients', 'recipe', array( 'group' => 'ingredients', 'label' => __( 'Ingredients', 'reverie' ), 'field_type' => 'text', 'multiple' => true ) );
 
 }
 endif;

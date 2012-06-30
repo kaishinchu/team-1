@@ -203,7 +203,11 @@
 
 	.container { padding: 0 20px; }
 	
-	.row { width: 90%; max-width: 980px;  margin: 0 auto; }
+	.row { width: 100%; max-width: 980px;  margin: 0 auto; }
+	
+	.container > .row {
+		width: 90%; 
+	}
 	/* To fix the grid into a certain size, set max-width to width */
 	.row .row { min-width: 0; }
 	
