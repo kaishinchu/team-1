@@ -26,7 +26,14 @@ get_header(); ?>
 							'post_type' => 'recipe',
 							'posts_per_page' => -1, 
 						);
-					    $wp_query = new WP_Query($searchArgs);		
+					    $wp_query = new WP_Query($searchArgs);
+					    if(!empty($POST['food_style']))	{
+						   $searchArgs['tax_query'][0] = array(); 
+						   foreach((array)$POST['food_style'] as $food_style){
+							    
+						   }
+					    }
+					    	
 						if($wp_query->have_posts()){
 							while ($wp_query->have_posts()) : $wp_query->the_post(); 
 						?>
