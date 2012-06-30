@@ -2,7 +2,7 @@
 function reverie_setup() {
 	// Add language supports. Please note that Reverie Framework does not include language files.
 	load_theme_textdomain('reverie', get_template_directory() . '/lang');
-	
+
 	// Add post thumbnail supports. http://codex.wordpress.org/Post_Thumbnails
 	add_theme_support('post-thumbnails');
 	// set_post_thumbnail_size(150, 150, false);
@@ -11,13 +11,13 @@ function reverie_setup() {
 
 	// Add post formarts supports. http://codex.wordpress.org/Post_Formats
 	//add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
-	
+
 	// Add menu supports. http://codex.wordpress.org/Function_Reference/register_nav_menus
 	add_theme_support('menus');
 	register_nav_menus(array(
 		'primary_navigation' => __('Primary Navigation', 'reverie'),
 		'utility_navigation' => __('Utility Navigation', 'reverie')
-	));	
+	));
 }
 add_action('after_setup_theme', 'reverie_setup');
 
@@ -110,37 +110,37 @@ class description_walker extends Walker_Nav_Menu
 	{
 		global $wp_query;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-		
+
 		$class_names = $value = '';
-		
+
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-		
+
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
 		$class_names = ' class="'. esc_attr( $class_names ) . '"';
-		
+
 		$output .= $indent . '<li id="menu-item-'. $item->ID . '-dd"' . $value . $class_names .'>';
-		
+
 		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
 		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
 		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-		
+
 		$prepend = '';
 		$append = '';
 		$description  = ! empty( $item->description ) ? '' : '';
-		
+
 		if($depth != 0)
 		{
 			$description = $append = $prepend = "";
 		}
-		
+
 		$item_output = $args->before;
 		$item_output .= '<a'. $attributes .'>';
 		$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
 		$item_output .= $description.$args->link_after;
 		$item_output .= '</a>';
 		$item_output .= $args->after;
-		
+
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 	function end_el(&$output, $item, $depth) {
@@ -212,40 +212,43 @@ function excerpt($limit) {
 
 
 add_action( 'init', 'register_cpt_recipe' );
-    function register_cpt_recipe() {
-    $labels = array(
-    'name' => _x( 'Recipes', 'recipe' ),
-    'singular_name' => _x( 'Recipe', 'recipe' ),
-    'add_new' => _x( 'Add New', 'recipe' ),
-    'add_new_item' => _x( 'Add New Recipe', 'recipe' ),
-    'edit_item' => _x( 'Edit Recipe', 'recipe' ),
-    'new_item' => _x( 'New Recipe', 'recipe' ),
-    'view_item' => _x( 'View Recipe', 'recipe' ),
-    'search_items' => _x( 'Search Recipes', 'recipe' ),
-    'not_found' => _x( 'No recipes found', 'recipe' ),
-    'not_found_in_trash' => _x( 'No recipes found in Trash', 'recipe' ),
-    'parent_item_colon' => _x( 'Parent Recipe:', 'recipe' ),
-    'menu_name' => _x( 'Recipes', 'recipe' ),
-    );
-    $args = array(
-    'labels' => $labels,
-    'hierarchical' => false,
-    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes' ),
-    'taxonomies' => array( 'ingredients', 'style' ),
-    'public' => true,
-    'show_ui' => true,
-    'show_in_menu' => true,
-    'show_in_nav_menus' => true,
-    'publicly_queryable' => true,
-    'exclude_from_search' => false,
-    'has_archive' => true,
-    'query_var' => true,
-    'can_export' => true,
-    'rewrite' => true,
-    'capability_type' => 'post'
-    );
-    register_post_type( 'recipe', $args );
-    } 
+function register_cpt_recipe() {
+
+	$labels = array(
+		'name' => _x( 'Recipes', 'recipe', 'reverie' ),
+		'singular_name' => _x( 'Recipe', 'recipe', 'reverie' ),
+		'add_new' => _x( 'Add New', 'recipe', 'reverie' ),
+		'add_new_item' => _x( 'Add New Recipe', 'recipe', 'reverie' ),
+		'edit_item' => _x( 'Edit Recipe', 'recipe', 'reverie' ),
+		'new_item' => _x( 'New Recipe', 'recipe', 'reverie' ),
+		'view_item' => _x( 'View Recipe', 'recipe', 'reverie' ),
+		'search_items' => _x( 'Search Recipes', 'recipe', 'reverie' ),
+		'not_found' => _x( 'No recipes found', 'recipe' ),
+		'not_found_in_trash' => _x( 'No recipes found in Trash', 'recipe', 'reverie' ),
+		'parent_item_colon' => _x( 'Parent Recipe:', 'recipe', 'reverie' ),
+		'menu_name' => _x( 'Recipes', 'recipe', 'reverie' ),
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'hierarchical' => false,
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes' ),
+		'taxonomies' => array( 'ingredients', 'style' ),
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'show_in_nav_menus' => true,
+		'publicly_queryable' => true,
+		'exclude_from_search' => false,
+		'has_archive' => true,
+		'query_var' => true,
+		'can_export' => true,
+		'rewrite' => true,
+		'capability_type' => 'post'
+	);
+	register_post_type( 'recipe', $args );
+
+}
 
 
 if ( function_exists('x_add_metadata_group' ) ) :
