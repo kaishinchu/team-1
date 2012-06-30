@@ -75,16 +75,14 @@
 		<header role="banner">
 
 			<div class="row clearfix">
-				<div class="three columns">
+				<div class="six columns">
 					<h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
 				</div>
-				<nav class="nine columns" role="navigation">
-					<?php /*
-						You can use Foundation Tabs to get a better responsive design.
-					    Our navigation menu. If one isn't filled out, wp_nav_menu falls
-					    back to wp_page_menu. The menu assigned to the primary position is
-					    the one used. If none is assigned, the menu with the lowest ID is
-					    used. */
+				<div class="six columns">
+					<h3><?php bloginfo('description'); ?></h3>
+				</div>
+				<nav class="twelve columns" role="navigation">
+					<?php
 						
 					    wp_nav_menu( array(
 						'theme_location' => 'primary_navigation',
@@ -96,9 +94,8 @@
 						'link_before' => '',
 						'link_after' => '',
 						'depth' => 0,
-						'items_wrap' => '<ul id="main-nav" class="nav dropmenu hide-on-phones">%3$s</ul>',
-						'walker' => new description_walker())
-					); ?>
+						'items_wrap' => '<ul id="main-nav" class="nav dropmenu hide-on-phones">%3$s</ul>'
+						)); ?>
 				</nav>
 			</div>
 		</header>

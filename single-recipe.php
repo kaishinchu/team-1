@@ -18,10 +18,6 @@
 				<div class="post-box">
 					<?php /* Start loop */ ?>
 						<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
-
-							<div class="entry-content">
-								<?php the_content(); ?>
-							</div>
 							<div class="ingredients panel">
 								<h3>Ingredients</h3>
 								<ul>
@@ -32,7 +28,11 @@
 								}
 								?> 
 								</ul>
-							</div>							
+							</div>
+							<div class="entry-content">
+								<?php the_content(); ?>
+							</div>
+							
 						</article>
 					<?php endwhile; // End the loop ?>
 				</div>

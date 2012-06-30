@@ -103,50 +103,6 @@ function image_tag($html, $id, $alt, $title) {
 }
 add_filter('get_image_tag', 'image_tag', 0, 4);
 
-// Customize the output of menus to fit the ZURB navigation style. Courtesy of Kriesi.at. http://www.kriesi.at/archives/improve-your-wordpress-navigation-menu-output
-class description_walker extends Walker_Nav_Menu
-{
-	function start_el(&$output, $item, $depth, $args)
-	{
-		global $wp_query;
-		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-
-		$class_names = $value = '';
-
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-
-		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-		$class_names = ' class="'. esc_attr( $class_names ) . '"';
-
-		$output .= $indent . '<li id="menu-item-'. $item->ID . '-dd"' . $value . $class_names .'>';
-
-		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-
-		$prepend = '';
-		$append = '';
-		$description  = ! empty( $item->description ) ? '' : '';
-
-		if($depth != 0)
-		{
-			$description = $append = $prepend = "";
-		}
-
-		$item_output = $args->before;
-		$item_output .= '<a'. $attributes .'>';
-		$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
-		$item_output .= $description.$args->link_after;
-		$item_output .= '</a>';
-		$item_output .= $args->after;
-
-		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-	}
-	function end_el(&$output, $item, $depth) {
-		$output .= "</li>\n";
-	}
-}
 
 // img unautop, Courtesy of Interconnectit http://interconnectit.com/2175/how-to-remove-p-tags-from-images-in-wordpress/
 function img_unautop($pee) {
@@ -281,5 +237,7 @@ function teamchicken_custom_fields() {
 
 }
 endif;
+
+include_once('php-widget-templates.php'); 
 
 ?>

@@ -51,7 +51,7 @@ get_header(); ?>
 			</div>		
 		</section>
 		<div class="row">
-			<?php ?>
+			<?php get_search_form( ); ?>
 		</div>
 		<div class="row">
 			<div class="eight columns">
