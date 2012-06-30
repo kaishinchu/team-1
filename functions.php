@@ -246,4 +246,16 @@ add_action( 'init', 'register_cpt_recipe' );
     );
     register_post_type( 'recipe', $args );
     } 
-?>
+
+
+if ( function_exists('x_add_metadata_group' ) ) :
+
+add_action( 'admin_init', 'teamchicken_custom_fields' );
+function teamchicken_custom_fields() {
+
+    // page fields
+  	x_add_metadata_group( 'featured_post', 'recipe', array( 'label' => __( 'Featured Post', 'reverie' ), 'context' => 'side' ) );
+  	x_add_metadata_field( 'featured_post', 'recipe', array( 'group' => 'featured_post', 'label' => __( 'Featured Post', 'reverie' ), 'field_type' => 'checkbox' ) );
+
+}
+endif;
