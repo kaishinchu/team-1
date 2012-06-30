@@ -47,7 +47,7 @@
 				</div>
 	
 			</div><!-- End Content row -->
-			
+
 			<?php get_sidebar('blog'); ?>
 		</div>
 <?php get_footer(); ?>
