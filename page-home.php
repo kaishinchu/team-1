@@ -51,7 +51,12 @@ get_header(); ?>
 			</div>		
 		</section>
 		<div class="row">
-			<?php get_search_form( ); ?>
+			<?php 
+				// get_search_form( ); 
+				
+			?>
+			<?php get_template_part( 'searchform', 'recipes' ); ?>
+
 		</div>
 		<div class="row">
 			<div class="eight columns">

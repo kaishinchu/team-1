@@ -60,7 +60,7 @@
 		jQuery(window).load(function() {
 		    jQuery("#main-nav").dropmenu({}); 
 		    
-		    
+		   
 		});
 	</script>
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>

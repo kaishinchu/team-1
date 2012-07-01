@@ -175,53 +175,33 @@ add_filter( 'excerpt_more', 'custom_excerpt_more' );
  Custom Post Types & Taxonomies
 */
 
-add_action( 'init', 'register_cpt_recipe' );
-function register_cpt_recipe() {
+register_post_type('recipe', array(	'label' => 'Recipes','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true, 'show_in_nav_menus ' => true, 'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => ''),'query_var' => true,'has_archive' => true,'menu_position' => 5,'supports' => array('title','editor','trackbacks','comments','revisions','thumbnail','page-attributes',),'taxonomies' => array('ingredients','style',),'labels' => array (
+  'name' => 'Recipes',
+  'singular_name' => 'Recipe',
+  'menu_name' => 'Recipes',
+  'add_new' => 'Add Recipe',
+  'add_new_item' => 'Add New Recipe',
+  'edit' => 'Edit',
+  'edit_item' => 'Edit Recipe',
+  'new_item' => 'New Recipe',
+  'view' => 'View Recipe',
+  'view_item' => 'View Recipe',
+  'search_items' => 'Search Recipes',
+  'not_found' => 'No Recipes Found',
+  'not_found_in_trash' => 'No Recipes Found in Trash',
+  'parent' => 'Parent Recipe',
+),) );
 
-	$labels = array(
-		'name' => _x( 'Recipes', 'recipe', 'reverie' ),
-		'singular_name' => _x( 'Recipe', 'recipe', 'reverie' ),
-		'add_new' => _x( 'Add New', 'recipe', 'reverie' ),
-		'add_new_item' => _x( 'Add New Recipe', 'recipe', 'reverie' ),
-		'edit_item' => _x( 'Edit Recipe', 'recipe', 'reverie' ),
-		'new_item' => _x( 'New Recipe', 'recipe', 'reverie' ),
-		'view_item' => _x( 'View Recipe', 'recipe', 'reverie' ),
-		'search_items' => _x( 'Search Recipes', 'recipe', 'reverie' ),
-		'not_found' => _x( 'No recipes found', 'recipe' ),
-		'not_found_in_trash' => _x( 'No recipes found in Trash', 'recipe', 'reverie' ),
-		'parent_item_colon' => _x( 'Parent Recipe:', 'recipe', 'reverie' ),
-		'menu_name' => _x( 'Recipes', 'recipe', 'reverie' ),
-	);
-
-	$args = array(
-		'labels' => $labels,
-		'hierarchical' => false,
-		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'trackbacks',  'comments', 'revisions', 'page-attributes' ),
-		'taxonomies' => array( 'ingredients', 'style' ),
-		'public' => true,
-		'show_ui' => true,
-		'show_in_menu' => true,
-		'show_in_nav_menus' => true,
-		'publicly_queryable' => true,
-		'exclude_from_search' => false,
-		'has_archive' => true,
-		'query_var' => true,
-		'can_export' => true,
-		'rewrite' => true,
-		'capability_type' => 'post'
-	);
-	register_post_type( 'recipe', $args );
-
-}
 
     //registered taxonomies for the Recipe custom post type
     register_taxonomy('ingredients',array (
   0 => 'recipe',
-),array( 'hierarchical' => false, 'label' => 'Ingredients','show_ui' => true,'query_var' => true,'rewrite' => array('slug' => ''),'singular_label' => 'Ingredient') );
+),array( 'hierarchical' => false, 'label' => 'Ingredients','show_ui' => true,'query_var' => true,'rewrite' => array('slug' => ''),'singular_label' => 'Ingredient', ) );
 
 	register_taxonomy('style',array (
 	  0 => 'recipe',
 	),array( 'hierarchical' => true, 'label' => 'Styles','show_ui' => true,'query_var' => true,'rewrite' => array('slug' => ''),'singular_label' => 'Style') );
+
 
 if ( function_exists('x_add_metadata_group' ) ) :
 
@@ -240,4 +220,5 @@ endif;
 
 include_once('php-widget-templates.php'); 
 
+ 
 ?>
