@@ -20,7 +20,10 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 /* ---------------------------------------------------
    Customized Adjustments of Foundation for WordPress
 --------------------------------------------------- */
-
+    @import url("css/kai.css");
+    @import url("css/thelma.css");
+    @import url("css/linsey.css"); 
+    
 	/* ZURB Navi for Foundation */
 	dl.nav { display: block; width: auto; height: 27px; margin: 0 0 18px; }
 	dl.nav dt, dl.nav dd { float: left; display: inline; }
@@ -124,3 +127,4 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
 	    background: #E7E7E7;
 		border-radius: 5px;
     }
+    

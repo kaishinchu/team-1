@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/foundation.css">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/app.css">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/flexslider.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/drop-down-style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/dropmenu-style.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 	
 	<!--[if lt IE 9]>
@@ -56,13 +56,13 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider-min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.dropmenu.js"></script>
 
-<!--
 	<script type="text/javascript">
 		jQuery(window).load(function() {
 		    jQuery("#main-nav").dropmenu({}); 
+		    
+		    
 		});
 	</script>
--->
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 	<?php wp_head(); ?>
 </head>

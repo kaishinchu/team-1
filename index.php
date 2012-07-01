@@ -21,7 +21,7 @@
 					
 					<?php /* Start loop */ ?>
 					<?php while (have_posts()) : the_post(); ?>
-						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+						<article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?>>
 							<div class="three columns">
 								<?php the_post_thumbnail('thumbnail'); ?>
 							</div>
