@@ -1,0 +1,155 @@
+To do to get Theme Options set up:
+
+CSS - 
+/* Scoial Media icons
+----------------------- */
+.social-media {
+	position:absolute;
+	top:-10px; right:0px;
+	list-style:none;
+}
+.social-media li {
+	float:left;
+	padding:0 5px;
+}
+a.twitter { 
+	background:transparent url(images/social-media.png) 0px 0 no-repeat;
+}
+a.facebook {
+	background:transparent url(images/social-media.png) -30px 0 no-repeat;
+}
+a.flickr {
+	background:transparent url(images/social-media.png) -60px 0 no-repeat;
+}
+a.pinetrest { 
+	background:transparent url(images/social-media.png) -95px 0 no-repeat;
+}
+a.youtube {
+	background:transparent url(images/social-media.png) -130px 0 no-repeat;
+}
+a.rss {
+	background:transparent url(images/social-media.png) -165px 0 no-repeat;
+}
+a.linkedin {
+	background:transparent url(images/social-media.png) -200px 0 no-repeat;
+}
+a.vimeo {
+	background:transparent url(images/social-media.png) -235px 0 no-repeat;
+}
+a.googleplus {
+	background:transparent url(images/social-media.png) -270px 0 no-repeat;
+}
+.social-media li a {
+	display:block;  
+	text-indent:-9999px; 
+	width: 25px; 
+	height:25px;
+	opacity:0.4;
+	filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+.social-media li a:hover{
+	opacity:1;
+	filter:alpha(opacity=100); /* For IE8 and earlier */
+}
+
+//Functions.php
+---------------------------------------*/
+
+/**
+ * Custom Theme Options
+ */
+require( get_template_directory() . '/inc/theme-options.php' );
+
+
+function mon_cahier_customize_register($wp_customize){
+
+    $wp_customize->add_setting('mon_cahier_theme_options[link_color]', array(
+        'default' => '000',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'capability' => 'edit_theme_options',
+        'type' => 'option',
+
+    ));
+
+	$wp_customize->add_setting('mon_cahier_theme_options[rollover_color]', array(
+	    'default' => '000',
+	    'sanitize_callback' => 'sanitize_hex_color',
+	    'capability' => 'edit_theme_options',
+	    'type' => 'option',
+
+	));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'link_color', array(
+        'label' => __('Link Color', 'mon_cahier'),
+        'section' => 'colors',
+        'settings' => 'mon_cahier_theme_options[link_color]',
+    )));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'rollover_color', array(
+	    'label' => __('Rollover Color', 'mon_cahier'),
+	    'section' => 'colors',
+	    'settings' => 'mon_cahier_theme_options[rollover_color]',
+	)));
+}
+
+add_action('customize_register', 'mon_cahier_customize_register');
+
+
+
+function mon_cahier_link_color(){
+	$mon_cahier_options = get_option( 'mon_cahier_theme_options' );
+	if ( isset( $mon_cahier_options['link_color'] ) ) { ?>
+		<style>
+			a {color: <?php echo $mon_cahier_options['link_color']; ?>}
+			a:hover {color: <?php echo $mon_cahier_options['rollover_color']; ?>}
+		</style>		
+	<?php }
+
+	}
+add_action( 'wp_head', 'mon_cahier_link_color' );
+
+
+
+//* Add to header.php file
+------------------------------------------------*/ <?php $options = get_option( 'mon_cahier_theme_options' ); ?>
+
+ <ul class="social-media">
+		<?php if ( $options['twitterurl'] != '' ) : ?>
+			<li><a href="<?php echo $options['twitterurl']; ?>" class="twitter"><?php _e( 'Twitter', 'mon_cahier' ); ?></a></li>
+		<?php endif; ?>
+
+		<?php if ( $options['facebookurl'] != '' ) : ?>
+			<li><a href="<?php echo $options['facebookurl']; ?>" class="facebook"><?php _e( 'Facebook', 'mon_cahier' ); ?></a></li>
+		<?php endif; ?>
+		
+		<?php if ( $options['pinetresturl'] != '' ) : ?>
+			<li><a href="<?php echo $options['pinetresturl']; ?>" class="pinetrest"><?php _e( 'Pintrest', 'mon_cahier' ); ?></a></li>
+		<?php endif; ?>
+		
+		<?php if ( $options['flickrurl'] != '' ) : ?>
+			<li><a href="<?php echo $options['flickrurl']; ?>" class="flickr"><?php _e( 'Flickr', 'mon_cahier' ); ?></a></li>
+		<?php endif; ?>
+		
+		<?php if ( $options['linkedinurl'] != '' ) : ?>
+			<li><a href="<?php echo $options['linkedinurl']; ?>" class="linkedin"><?php _e( 'LinkedIn', 'mon_cahier' ); ?></a></li>
+		<?php endif; ?>
+		
+		<?php if ( $options['googleplusurl'] != '' ) : ?>
+			<li><a href="<?php echo $options['googleplusurl']; ?>" class="googleplus"><?php _e( 'Google Plus', 'mon_cahier' ); ?></a></li>
+		<?php endif; ?>
+		
+		<?php if ( $options['vimeourl'] != '' ) : ?>
+			<li><a href="<?php echo $options['vimeourl']; ?>" class="vimeo"><?php _e( 'Vimeo', 'mon_cahier' ); ?></a></li>
+		<?php endif; ?>
+
+		<?php if ( $options['youtubeurl'] != '' ) : ?>
+			<li><a href="<?php echo $options['youtubeurl']; ?>" class="youtube"><?php _e( 'Youtube', 'mon_cahier' ); ?></a></li>
+		<?php endif; ?>
+
+
+		<?php if ( ! $options['hiderss'] ) : ?>
+			<li><a href="<?php bloginfo( 'rss2_url' ); ?>" class="rss"><?php _e( 'RSS Feed', 'mon_cahier' ); ?></a></li>
+		<?php endif; ?>
+	</ul><!-- #social-icons-->
+
+
