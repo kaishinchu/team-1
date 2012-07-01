@@ -18,6 +18,7 @@
 				<div class="post-box">
 					<?php /* Start loop */ ?>
 						<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+							<?php the_post_thumbnail('slideshow'); ?>
 							<div class="ingredients panel">
 								<h3>Ingredients</h3>
 								<ul>

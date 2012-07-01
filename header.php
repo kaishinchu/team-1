@@ -52,17 +52,7 @@
 	<!-- If jQuery already load, remove the line -->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
 	
-	<script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.foundation.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider-min.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.dropmenu.js"></script>
-
-	<script type="text/javascript">
-		jQuery(window).load(function() {
-		    jQuery("#main-nav").dropmenu({}); 
-		    
-		   
-		});
-	</script>
+	<?php wp_enqueue_script("jquery"); ?>
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 	<?php wp_head(); ?>
 </head>
@@ -77,11 +67,9 @@
 			<div class="row clearfix">
 				<div class="six columns">
 					<h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
-				</div>
-				<div class="six columns">
 					<h3><?php bloginfo('description'); ?></h3>
 				</div>
-				<nav class="twelve columns" role="navigation">
+				<nav class="six columns" role="navigation">
 					<?php
 						
 					    wp_nav_menu( array(

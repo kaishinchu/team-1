@@ -9,6 +9,22 @@
 	</div><!-- Container End -->
 	
 	<!-- Included JS Files of Foundation -->
+		<script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.foundation.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexslider-min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.dropmenu.js"></script>
+
+	<script type="text/javascript">
+		jQuery(window).load(function() {
+		    jQuery("#main-nav").dropmenu({}); 
+		    
+			jQuery('#show-search').bind('click.hello', function(event){
+				event.preventDefault();
+				jQuery('.show, .hide').toggle(); 
+				jQuery('#advanced-search').slideToggle('slow');
+			});
+		});
+	</script>
+	
 	<script src="<?php echo get_template_directory_uri(); ?>/js/foundation.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/app.js"></script>
 	

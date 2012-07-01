@@ -25,3 +25,17 @@ License URI:        http://www.opensource.org/licenses/mit-license.php
     @import url("css/thelma.css");
     @import url("css/linsey.css"); 
     
+	#advanced-search {
+		display: none;
+	}
+	.custom-search input[type="text"] {
+		display: inline;
+		margin: 0 10px 0 0; 
+	}
+	#show-search .hide {
+		display: hide; 
+	}
+	
+	#show-search .show {
+		display: inherit;
+	}
