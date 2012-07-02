@@ -1,0 +1,32 @@
+/*	--------------------------------------------------
+	Panels
+	-------------------------------------------------- */
+	body { padding-bottom: 60px; width: 100%; background: #fff; border: none; max-width: 100%; color: #4E4E4E;}
+	h1 {font-family: 'Numans', sans-serif; color: #f0a82d;}
+h2, h3, h4, h5, h6 {font-family: 'Numans', sans-serif; color: #5E214F;}
+header h1 a{color: #5E214F;}
+header h2, h3 {color: #78C0A8;}
+a {font-style: normal; color: #F0A82D;}
+a:hover {color: #5E214F;}
+	
+	
+.sidebar-section.panel, .ingredients.panel {
+		padding: 10px 10px 10px 10px;
+		background: #ffffff;
+	
+		overflow:hidden;
+		box-shadow: none;
+		margin: 0 0 20px 0;
+	}
+
+.sidebar-section h3 {font-size:20px;}
+
+.sidebar-section.panel {
+			border-bottom:dotted 1px #4e4e4e;
+}
+
+
+
+.ingredients.panel h3 {font-family: Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif; color:#4e4e4e; font-size:1.5em;}
+
+.ingredients li {font-size:1.2em; padding-left:10px; line-height:12px;}

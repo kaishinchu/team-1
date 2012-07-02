@@ -102,3 +102,69 @@
 		border-radius: 5px;
     }
     
+    
+    /* Social Media icons
+----------------------- */
+.social-media {
+	position:absolute;
+	top:-10px; right:0px;
+	list-style:none;
+}
+.social-media li {
+	float:left;
+	padding:0 5px;
+}
+a.twitter { 
+	background:transparent url(../images/social-media.png) 0px 0 no-repeat;
+}
+a.facebook {
+	background:transparent url(../images/social-media.png) -30px 0 no-repeat;
+}
+a.flickr {
+	background:transparent url(../images/social-media.png) -60px 0 no-repeat;
+}
+a.pinetrest { 
+	background:transparent url(../images/social-media.png) -95px 0 no-repeat;
+}
+a.youtube {
+	background:transparent url(../images/social-media.png) -130px 0 no-repeat;
+}
+a.rss {
+	background:transparent url(../images/social-media.png) -165px 0 no-repeat;
+}
+a.linkedin {
+	background:transparent url(../images/social-media.png) -200px 0 no-repeat;
+}
+a.vimeo {
+	background:transparent url(../images/social-media.png) -235px 0 no-repeat;
+}
+a.googleplus {
+	background:transparent url(../images/social-media.png) -270px 0 no-repeat;
+}
+.social-media li a {
+	display:block;  
+	text-indent:-9999px; 
+	width: 25px; 
+	height:25px;
+	opacity:0.4;
+	filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+.social-media li a:hover{
+	opacity:1;
+	filter:alpha(opacity=100); /* For IE8 and earlier */
+}
+
+	#advanced-search {
+		display: none;
+	}
+	.custom-search input[type="text"] {
+		display: inline;
+		margin: 0 10px 0 0; 
+	}
+	#show-search .hide {
+		display: hide; 
+	}
+	
+	#show-search .show {
+		display: inherit;
+	}

@@ -1,4 +1,4 @@
-<form role="search" method="POST" id="searchform" class="nice custom custom-search" action="<?php echo home_url('recipe-search'); ?>">
+<form role="search" method="POST" id="searchform" class="nice custom custom-search" action="<?php echo home_url('?page_id=27'); ?>">
 	<input type="text" value="" name="recipe-search" id="recipe-search" class="input-text large" placeholder="<?php _e('Search', 'reverie'); ?>">
 	<input type="submit" id="searchsubmit" value="<?php _e('Search', 'reverie'); ?>" class="white nice button radius">
 	<a href="#" id="show-search"><?php _e('<span class="show">Show</span><span class="hide">Hide</span> Advanced Search Options', 'reverie'); ?></a>

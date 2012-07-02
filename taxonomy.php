@@ -24,8 +24,10 @@
 						<div class="nine columns">
 							<header>
 								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-								<h3><?php echo get_the_term_list( $post->ID, 'style', 'Style: ', ', ', '' ); ?> </h3>
+								<div class="meta-info">
+								<?php echo get_the_term_list( $post->ID, 'style', 'Style: ', ', ', '' ); ?> 
 								<?php echo get_the_term_list( $post->ID, 'ingredients', 'Ingredients: ', ', ', '' ); ?> 
+								</div>
 							</header>
 							<div class="entry-content">
 								<?php the_excerpt(); ?>

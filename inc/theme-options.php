@@ -111,7 +111,7 @@ function mon_cahier_options_do_page() {
 				 * Pinterest
 				 */
 				?>
-				<tr valign="top"><th scope="row"><?php _e( 'Enter your Pintrest URL', 'mon_cahier' ); ?></th>
+				<tr valign="top"><th scope="row"><?php _e( 'Enter your Pinterest URL', 'mon_cahier' ); ?></th>
 					<td>
 						<input id="mon_cahier_theme_options" class="regular-text" type="text" name="mon_cahier_theme_options[pinetresturl]" value="<?php esc_attr_e( $options['pinetresturl'] ); ?>" />
 						<label class="description" for="mon_cahier_theme_options[pinetresturl]"><?php _e( 'Leave blank to hide Pintrest Icon', 'mon_cahier' ); ?></label>

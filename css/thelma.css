@@ -1,0 +1,278 @@
+body { padding-bottom: 60px; width: 100%; background: #fff; border: none; max-width: 100%; color: #4E4E4E;}
+h1, h2, h3, h4, h5, h6 {font-family: 'Numans', sans-serif; color: #5E214F;}
+header h1 a{color: #5E214F;}
+header h2, h3 {color: #78C0A8;}
+a {font-style: normal; color: #F0A82D;}
+a:hover {color: #5E214F;}
+
+
+
+ul.dropmenu {
+	float: right;
+	margin: 0px; 
+	padding: 0px;
+	display:block;
+	height:35px;
+	color:#000;
+	color:#ff9900;
+	
+}
+
+.dropmenu li a, .dropmenu li{
+	font-family: 'Numans', sans-serif;
+	font-size:20px;
+	float: left;
+	color:#ff9900;
+	padding: 2px 9px 2px 9px;
+}
+.dropmenu li a:hover, .dropmenu li.open > a{
+	color: #5E214F;
+	border:none;	
+}
+
+.dropmenu li{
+	list-style: none;
+	position: relative;	
+	top: 1px;
+	border-right: 3px solid #ff9900; 
+}
+.dropmenu li:last-child {
+	border-right: none;
+	}
+.dropmenu li span{
+	display: block;
+	height: 10px;
+	width: 10px;
+	position: absolute;
+	top: 12px;
+	right: 10px;
+}
+.dropmenu li a:hover span, .dropmenu li.open > a span{
+}
+
+.dropmenu li a, .dropmenu li div{
+	padding: 1px 9px 1px 9px;
+	text-decoration: none;
+}
+
+/* Submenu */
+.dropmenu li > ul, .dropmenu li > div {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	padding: 0px;
+	margin: 0px;
+
+}
+
+.dropmenu.css-only li:hover > ul, .dropmenu.css-only li:hover > div{
+	display: block;
+}
+
+.dropmenu li ul li, .dropmenu li ul li a{
+	float: none;	
+	color: #ff9900;
+	text-transform: none;
+	text-decoration: none;
+	background-color:transparent;
+	border:none;
+	
+}
+
+.dropmenu li ul li{
+	_display: inline;	
+}
+
+.dropmenu li > div{
+	width: 200px;
+}
+
+.dropmenu li ul li a span{
+	
+}
+
+/* Sub submenu */
+
+.dropmenu li ul li a{
+	width: 130px;
+	display: block;	
+	border-style:none;
+	font-size:15px;
+	
+}
+
+.dropmenu li ul li{
+	padding: 1px 9px 1px 9px;
+	margin: 6px 0; 
+	
+}
+
+.dropmenu li ul li a:hover{
+	color:#5E214F;
+	background-color:transparent;
+}
+
+.dropmenu li ul li ul, .dropmenu li ul li > div{
+	top: 0px;
+	left: 60%;
+	padding: 1px 6px 1px 9px;
+	margin: 3px 0;
+}
+
+
+/*******************************************************
+Login form
+*******************************************************/
+.dropmenu li > div.login{
+	border:1px solid #CCCCCC;
+	width: 210px;	
+}
+.dropmenu li > div.login div{
+	border: none;
+}
+.login label{
+	display:block;
+	padding:0 0 4px;
+	color:#595959;	
+}
+.login input {
+	border:1px solid #4A779D;
+	margin-bottom:8px;
+	padding:3px 8px;
+	width:164px;
+}
+.login button {
+	border:1px solid #4A779D;
+	color:#FFFFFF;
+	padding:4px 10px;
+	width:175px;
+}
+
+/*******************************************************
+Products div
+*******************************************************/
+.dropmenu li > div.products{
+	width: 285px;
+
+}
+.dropmenu li:hover > div.products ul{
+	display: block;
+}
+.dropmenu li > div.products *{
+	padding: 0px;
+	margin: 0px;
+	position: relative;	
+	border: none;
+}
+.dropmenu li > div.products li{
+	overflow: hidden;
+	padding: 10px 0px;
+	border-bottom:1px solid #CCCCCC;
+}
+.dropmenu li > div.products li img{
+	float: left;
+	margin:  0 15px;
+}
+.dropmenu li > div.products{
+	border:1px solid #CCCCCC;
+	color:#595959;
+}
+.dropmenu li > div.products ul li h2{
+	font-size: 16px;
+	margin: 0px;
+	padding: 2px 0 3px;
+}
+.dropmenu li > div.products ul li p{
+	color:#666666;
+	font-size:10px;
+	margin:0;
+	padding:0;
+}
+.dropmenu li > div.products ul li p a {
+	border:medium none;
+	color:#666666;
+	display:inline;
+	margin:0;
+	padding:0;
+	text-transform:none;
+	background: none;
+}
+.dropmenu li > div.products ul{
+	padding: 0px;
+	margin: 0px;	
+}
+.dropmenu li > div.products ul li p a:hover {
+	color:#222;
+	text-decoration: none !important;
+}
+.dropmenu li > div.products .small{
+	padding: 15px;
+	color:#595959;
+	font-size: 9px;
+	text-transform: none;
+}
+
+/*******************************************************
+meta-info div
+*******************************************************/
+
+.meta-info {
+	background-color:#78C0A8;
+	padding:5px;
+	color:#FFF;
+	
+}
+
+.meta-info a {
+	color:#FFF;
+	text-decoration:underline;
+	
+	
+}
+
+.meta-info a:hover {
+	color:#ff9900;
+	text-decoration:none;
+	
+}
+
+form label {
+    cursor: pointer;
+    display: block;
+    font-size: 20px;
+    line-height: 18px;
+    margin-bottom: 9px;
+	font-family: 'Numans', sans-serif;
+	color:#ff9900;
+	padding: 9px 9px;
+	
+}
+
+.avatar{
+		float:left;
+		padding-right:5px;	
+		}
+
+.comment p {
+	
+	color:#4E4E4E;	
+}
+
+.comment  article{
+	border-bottom:1px dotted #4e4e4e;
+	margin-bottom:10px;
+
+}
+
+.children {
+	margin-left:8%;
+	
+}
+
+.children p {
+	color:#4E4E4E;
+	
+}
+
+

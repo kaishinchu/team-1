@@ -18,7 +18,13 @@
 				<div class="post-box">
 					<?php /* Start loop */ ?>
 						<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
-							<?php the_post_thumbnail('slideshow'); ?>
+							<div class="flexslider">
+								<?php 	the_post_thumbnail('slideshow'); 
+								?>
+								<div class="slide-text">
+									<?php the_post_thumbnail_caption(); ?>
+								</div>
+							</div>
 							<div class="ingredients panel">
 								<h3>Ingredients</h3>
 								<ul>
@@ -33,11 +39,14 @@
 							<div class="entry-content">
 								<?php the_content(); ?>
 							</div>
-							
+							<div class="meta-info">
+								<?php echo get_the_term_list( $post->ID, 'style', 'Style: ', ', ', '' ); ?> 
+								<?php echo get_the_term_list( $post->ID, 'ingredients', 'Ingredients: ', ', ', '' ); ?> 
+							</div>
 						</article>
 					<?php endwhile; // End the loop ?>
 				</div>
-	
+				<?php comments_template( '', true ); ?>
 			</div><!-- End Content row -->
 		
 		<?php get_sidebar(); ?>

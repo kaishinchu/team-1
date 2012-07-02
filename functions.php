@@ -7,7 +7,7 @@ function reverie_setup() {
 	add_theme_support('post-thumbnails');
 	// set_post_thumbnail_size(150, 150, false);
 	//image size for front page slider, change to fit design
-	add_image_size('slideshow', 980, 400, false);
+	add_image_size('slideshow', 980, 400, true);
 
 	// Add post formarts supports. http://codex.wordpress.org/Post_Formats
 	//add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
@@ -175,7 +175,7 @@ add_filter( 'excerpt_more', 'custom_excerpt_more' );
  Custom Post Types & Taxonomies
 */
 
-register_post_type('recipe', array(	'label' => 'Recipes','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true, 'show_in_nav_menus ' => true, 'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => ''),'query_var' => true,'has_archive' => true,'menu_position' => 5,'supports' => array('title','editor','trackbacks','comments','revisions','thumbnail','page-attributes',),'taxonomies' => array('ingredients','style',),'labels' => array (
+register_post_type('recipe', array(	'label' => 'Recipes','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true, 'show_in_nav_menus ' => true, 'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => ''),'query_var' => true,'has_archive' => true,'menu_position' => 5,'supports' => array('title','editor', 'trackbacks','comments','revisions','thumbnail','page-attributes',),'taxonomies' => array('ingredients','style',),'labels' => array (
   'name' => 'Recipes',
   'singular_name' => 'Recipe',
   'menu_name' => 'Recipes',
@@ -218,7 +218,71 @@ function teamchicken_custom_fields() {
 }
 endif;
 
+/**
+ * Custom Theme Options
+ */
+require( get_template_directory() . '/inc/theme-options.php' );
+
+
+function mon_cahier_customize_register($wp_customize){
+
+    $wp_customize->add_setting('mon_cahier_theme_options[link_color]', array(
+        'default' => '000',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'capability' => 'edit_theme_options',
+        'type' => 'option',
+
+    ));
+
+	$wp_customize->add_setting('mon_cahier_theme_options[rollover_color]', array(
+	    'default' => '000',
+	    'sanitize_callback' => 'sanitize_hex_color',
+	    'capability' => 'edit_theme_options',
+	    'type' => 'option',
+
+	));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'link_color', array(
+        'label' => __('Link Color', 'mon_cahier'),
+        'section' => 'colors',
+        'settings' => 'mon_cahier_theme_options[link_color]',
+    )));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'rollover_color', array(
+	    'label' => __('Rollover Color', 'mon_cahier'),
+	    'section' => 'colors',
+	    'settings' => 'mon_cahier_theme_options[rollover_color]',
+	)));
+}
+
+add_action('customize_register', 'mon_cahier_customize_register');
+
+
+
+function mon_cahier_link_color(){
+	$mon_cahier_options = get_option( 'mon_cahier_theme_options' );
+	if ( isset( $mon_cahier_options['link_color'] ) ) { ?>
+		<style>
+			a {color: <?php echo $mon_cahier_options['link_color']; ?>}
+			a:hover {color: <?php echo $mon_cahier_options['rollover_color']; ?>}
+		</style>		
+	<?php }
+
+	}
+add_action( 'wp_head', 'mon_cahier_link_color' );
+
+function the_post_thumbnail_caption() {
+  global $post;
+
+  $thumbnail_id    = get_post_thumbnail_id($post->ID);
+  $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+
+  if ($thumbnail_image && isset($thumbnail_image[0])) {
+    echo '<span>'.$thumbnail_image[0]->post_excerpt.'</span>';
+  }
+}
+
 include_once('php-widget-templates.php'); 
 
- 
+
 ?>
